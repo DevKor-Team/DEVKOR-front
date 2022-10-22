@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         button: "#222222",
         devkor: "#F6B55A",
+        divider: "#D9D9D9",
       },
     },
     fontFamily: {
