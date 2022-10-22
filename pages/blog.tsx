@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import Header from "../components/Header";
+import PostCard from "../components/PostCard";
 import styles from "../styles/Home.module.css";
 
 const Blog: NextPage = () => {
@@ -21,71 +22,73 @@ const Blog: NextPage = () => {
             <h1 className="text-3xl font-bold">⚙️Tech Blog</h1>
             <p className="text-xl">대충 멋진 설명</p>
           </div>
-          <button className="bg-button hover:bg-white text-white hover:text-black font-bold w-40 py-2 px-4 rounded-full float-right flex justify-center">
+          <button className="bg-button hover:bg-white text-white hover:text-black font-bold w-40 py-2 px-4 rounded-full sm:float-right flex justify-center">
             새 글 작성
           </button>
         </div>
-        <div className="subjects mt-10 w-4/5 ml-auto mr-auto flex flex-row">
-          <button
-            className={`${
-              sectionIdx == 0
-                ? "bg-devkor text-black font-bold"
-                : "bg-button text-white"
-            } w-20 py-2 px-4 rounded-full flex justify-center`}
-            onClick={() => setSectionIdx(0)}
-          >
-            전체
-          </button>
-          <button
-            className={`${
-              sectionIdx == 1
-                ? "bg-devkor text-black font-bold"
-                : "bg-button text-white"
-            } w-36 ml-5 py-2 px-4 rounded-full flex justify-center`}
-            onClick={() => setSectionIdx(1)}
-          >
-            FrontEnd
-          </button>
-          <button
-            className={`${
-              sectionIdx == 2
-                ? "bg-devkor text-black font-bold"
-                : "bg-button text-white"
-            } w-36 ml-5 py-2 px-4 rounded-full flex justify-center`}
-            onClick={() => setSectionIdx(2)}
-          >
-            BackEnd
-          </button>
-          <button
-            className={`${
-              sectionIdx == 3
-                ? "bg-devkor text-black font-bold"
-                : "bg-button text-white"
-            } w-20 ml-5 py-2 px-4 rounded-full flex justify-center`}
-            onClick={() => setSectionIdx(3)}
-          >
-            ML
-          </button>
-          <button
-            className={`${
-              sectionIdx == 4
-                ? "bg-devkor text-black font-bold"
-                : "bg-button text-white"
-            } w-36 ml-5 py-2 px-4 rounded-full flex justify-center`}
-            onClick={() => setSectionIdx(4)}
-          >
-            DevOps
-          </button>
-          <button
-            className={`${
-              sectionIdx == 5
-                ? "bg-devkor text-black font-bold"
-                : "bg-button text-white"
-            } w-20 ml-5 py-2 px-4 rounded-full flex justify-center`}
-            onClick={() => setSectionIdx(5)}
-          >
-            기타
-          </button>
+        <div className="subjects mt-10 w-4/5 ml-auto mr-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 justify-center">
+            <button
+              className={`${
+                sectionIdx == 0
+                  ? "bg-devkor text-black font-bold"
+                  : "bg-button text-white"
+              } w-32 py-2 px-4 rounded-full flex justify-center ml-auto mr-auto`}
+              onClick={() => setSectionIdx(0)}
+            >
+              전체
+            </button>
+            <button
+              className={`${
+                sectionIdx == 1
+                  ? "bg-devkor text-black font-bold"
+                  : "bg-button text-white"
+              } w-32 py-2 px-4 rounded-full flex justify-center ml-auto mr-auto`}
+              onClick={() => setSectionIdx(1)}
+            >
+              FrontEnd
+            </button>
+            <button
+              className={`${
+                sectionIdx == 2
+                  ? "bg-devkor text-black font-bold"
+                  : "bg-button text-white"
+              } w-32 py-2 px-4 rounded-full flex justify-center ml-auto mr-auto`}
+              onClick={() => setSectionIdx(2)}
+            >
+              BackEnd
+            </button>
+            <button
+              className={`${
+                sectionIdx == 3
+                  ? "bg-devkor text-black font-bold"
+                  : "bg-button text-white"
+              } w-32 py-2 px-4 rounded-full flex justify-center ml-auto mr-auto`}
+              onClick={() => setSectionIdx(3)}
+            >
+              ML
+            </button>
+            <button
+              className={`${
+                sectionIdx == 4
+                  ? "bg-devkor text-black font-bold"
+                  : "bg-button text-white"
+              } w-32 py-2 px-4 rounded-full flex justify-center ml-auto mr-auto`}
+              onClick={() => setSectionIdx(4)}
+            >
+              DevOps
+            </button>
+            <button
+              className={`${
+                sectionIdx == 5
+                  ? "bg-devkor text-black font-bold"
+                  : "bg-button text-white"
+              } w-32 py-2 px-4 rounded-full flex justify-center ml-auto mr-auto`}
+              onClick={() => setSectionIdx(5)}
+            >
+              기타
+            </button>
+          </div>
         </div>
         <form className="searchbar mt-10 w-4/5 ml-auto mr-auto">
           <div className="relative">
@@ -120,7 +123,20 @@ const Blog: NextPage = () => {
             </button>
           </div>
         </form>
+        <div className="bloglist mt-10 w-4/5 ml-auto mr-auto mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:gap-8">
+            <PostCard />
+            <PostCard />
+            <PostCard />
+            <PostCard />
+            <PostCard />
+            <PostCard />
+            <PostCard />
+            <PostCard />
+          </div>
+        </div>
       </body>
+      <div className="h-60">{/* Footer 완성되면 여기에 채우기 */}</div>
     </div>
   );
 };
