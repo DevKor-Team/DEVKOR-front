@@ -7,7 +7,7 @@ const Home: NextPage = () => {
     <div>
       <Header />
       <VideoViewer
-        url="videos/LandingPageMain.MP4"
+        url="videos/LandingPageMain.mp4"
         width="1140px"
         height="588px"
       ></VideoViewer>
