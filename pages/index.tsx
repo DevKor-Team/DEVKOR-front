@@ -1,18 +1,13 @@
 import type { NextPage } from "next";
 import Header from "../components/Header";
-import VideoViewer from "../components/VideoViewer";
 
 const Home: NextPage = () => {
-  return (
-    <div>
-      <Header />
-      <VideoViewer
-        url="videos/LandingPageMain.mp4"
-        width="1140px"
-        height="588px"
-      ></VideoViewer>
-    </div>
-  );
+    return (
+        <div>
+            <div className="text-white">랜딩 페이지</div>
+            <div className="bg-red-300">hahaha</div>
+        </div>
+    );
 };
 
 export default Home;
