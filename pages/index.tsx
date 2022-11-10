@@ -4,7 +4,8 @@ import Header from "../components/Header";
 const Home: NextPage = () => {
     return (
         <div>
-            <Header />
+            <div className="text-white">랜딩 페이지</div>
+            <div className="bg-red-300">hahaha</div>
         </div>
     );
 };

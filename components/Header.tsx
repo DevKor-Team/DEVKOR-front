@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <header className="w-full flex bg-black justify-between items-center h-[5rem]">
             <section className="flex pl-[9.375rem]">
-                <div className="px-[2rem]">
+                <div className="pr-[2rem]">
                     <Image src="/images/devkor-logo.svg" alt="devkor" width="108" height="90"></Image>
                 </div>
                 <div className="flex py-[1.875rem]">
