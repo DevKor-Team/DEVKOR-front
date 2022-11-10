@@ -1,20 +1,19 @@
-import { HEADER_ITEMS_TEXT } from "../constants/text";
-const HeaderItem = ({ onClick }: { onClick: any }) => {
-  return (
-    <div className="flex flex-row content-around pt-[30px] pl-[78px]">
-      {HEADER_ITEMS_TEXT.map((item: string, index) => {
-        return (
-          <div
-            className="text-[#F6B55A] font-noto"
-            key={index}
-            onClick={onClick}
-          >
-            {item}
-          </div>
-        );
-      })}
-    </div>
-  );
-};
+import React from "react";
+import { useRouter } from "next/router";
 
-export default HeaderItem;
+interface MenuProps {
+    title: string;
+}
+
+export const SingleMenu = ({ title }: MenuProps) => {
+    const router = useRouter();
+    const routerPath = title.toLowerCase();
+    const handleClick = () => {
+        router.push(`/${routerPath}`);
+    };
+    return (
+        <div className="text-[#F6B55A] px-[2rem] text-lg cursor-pointer font-noto" onClick={handleClick}>
+            {title}
+        </div>
+    );
+};
