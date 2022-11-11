@@ -81,9 +81,8 @@ const Blog: NextPage = () => {
             />
             <button
               type="submit"
-              className="absolute right-2.5 bottom-2.5 bg-button text-white hover:bg-devkor hover:text-black font-medium rounded-full text-sm px-4 py-2"
+              className="absolute right-2.5 bottom-2.5 bg-button text-white hover:bg-devkor hover:text-black font-medium rounded-full text-base px-6 py-2"
             >
-              {/* 이거 버튼 클릭시 흰검으로 할지 주검으로 할지 고민중*/}
               Search
             </button>
           </div>
