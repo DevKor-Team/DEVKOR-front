@@ -17,8 +17,8 @@ const Blog: NextPage = () => {
       <body>
         <div className="w-4/5 ml-auto mr-auto mt-10">
           <div className="inline-block">
-            <h1 className="text-3xl font-bold">⚙️Tech Blog</h1>
-            <p className="text-xl">대충 멋진 설명</p>
+            <h1 className="text-3xl text-white font-bold">⚙️Tech Blog</h1>
+            <p className="text-xl text-white">대충 멋진 설명</p>
           </div>
           <button className="bg-button hover:bg-white text-white hover:text-black font-bold w-40 py-2 px-4 rounded-full sm:float-right flex justify-center">
             새 글 작성
@@ -134,7 +134,6 @@ const Blog: NextPage = () => {
           </div>
         </div>
       </body>
-      <div className="h-60">{/* Footer 완성되면 여기에 채우기 */}</div>
     </div>
   );
 };
