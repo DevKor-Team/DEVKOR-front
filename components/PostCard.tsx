@@ -10,7 +10,7 @@ const PostCard = () => {
         <Image src={blogDefault} alt="BlogPost" layout="fill" />
       </div>
       <div className="px-4 py-4">
-        <div className="font-bold text-white text-xl break-normal mb-5 h-14">
+        <div className="font-bold text-white text-2xl break-normal mb-5 h-14">
           Next.js의 Hydration 파헤치기
         </div>
         <p className="text-divider">2022년 10월 7일</p>
@@ -26,7 +26,7 @@ const PostCard = () => {
           />
         </div>
         <div className="text-sm ml-2 mt-3">
-          <p className="text-white leading-none">by 노정훈회장님</p>
+          <p className="text-white leading-none">by 노정훈</p>
         </div>
         <div className="response text-sm flex items-center justify-center mt-3 mr-4 ml-auto">
           <div className="likes flex items-center">
