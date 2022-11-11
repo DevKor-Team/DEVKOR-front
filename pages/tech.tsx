@@ -68,7 +68,7 @@ const Blog: NextPage = () => {
             ))}
           </div>
         </div>
-        <form className="searchbar mt-10 w-4/5 ml-auto mr-auto">
+        <form className="searchbar mt-10">
           <div className="relative">
             <div className="searchicon flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
               <svg
@@ -101,7 +101,7 @@ const Blog: NextPage = () => {
             </button>
           </div>
         </form>
-        <div className="bloglist mt-10 w-4/5 ml-auto mr-auto mb-10">
+        <div className="bloglist mt-10 pb-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:gap-8">
             <PostCard />
             <PostCard />
