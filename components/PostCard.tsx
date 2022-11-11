@@ -4,7 +4,7 @@ import profileDefault from "../public/images/ProfileDefault.jpg";
 
 const PostCard = () => {
   return (
-    <div className="max-w-sm ml-auto mr-auto rounded overflow-hidden shadow-lg bg-button md:hover:-mt-5 md:hover:mb-5">
+    <div className="max-w-sm ml-auto mr-auto rounded overflow-hidden shadow-lg cursor-pointer bg-button md:hover:-mt-5 md:hover:mb-5 transition-all">
       <div className="w-full aspect-[3/2] relative">
         <Image src={blogDefault} alt="BlogPost" layout="fill" />
       </div>
