@@ -15,6 +15,7 @@ const MyPage = () => {
         formState: { errors },
     } = useForm<Inputs>();
     const [selectedPosition, setSelectedPosition] = useState<string>();
+    const [selectedList, setSelectedList] = useState<string[]>();
     const [selectedProject, setSelectedProject] = useState<string>();
 
     const onSubmit = (data: Inputs) => {
@@ -36,12 +37,9 @@ const MyPage = () => {
                                 <Image src="/images/ProfileDefault.jpg" alt="profile" width="160" height="160" className="rounded-full" />
                             </div>
                             <div className="flex flex-wrap justify-center w-[80%] items-end mb-5">
-                                <Tag name="FE" />
-                                <Tag name="UI/UX" />
-                                <Tag name="CV" />
-                                <Tag name="the DEVKOR" />
-                                <Tag name="the DEVKOR" />
-                                <Tag name="the DEVKOR" />
+                                {selectedList?.map((x, idx) => {
+                                    return <Tag name={x} key={idx} />;
+                                })}
                             </div>
                         </div>
                     </div>
@@ -65,6 +63,11 @@ const MyPage = () => {
                                     })}
                                     onChange={(value) => {
                                         setSelectedPosition(value?.value);
+                                        if (selectedList && value && !selectedList.includes(value.value)) {
+                                            setSelectedList([...selectedList, value.value]);
+                                        } else if (value && !selectedList?.includes(value.value)) {
+                                            setSelectedList([value.value]);
+                                        }
                                     }}
                                 />
                             </div>
@@ -85,6 +88,11 @@ const MyPage = () => {
                                     })}
                                     onChange={(value) => {
                                         setSelectedProject(value?.value);
+                                        if (selectedList && value && !selectedList.includes(value.value)) {
+                                            setSelectedList([...selectedList, value?.value]);
+                                        } else if (value && !selectedList?.includes(value.value)) {
+                                            setSelectedList([value.value]);
+                                        }
                                     }}
                                 />
                             </div>
