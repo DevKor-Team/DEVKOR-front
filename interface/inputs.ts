@@ -6,12 +6,12 @@ export interface Inputs {
     projects: ProjectEnum;
     description: string;
     name: string;
-    birthday: Date;
-    major: string;
-    studentNo: string;
-    github: string;
-    mbti: string;
-    instagram: string;
-    hobby: string;
-    blog: string;
+    birthday?: Date;
+    major?: string;
+    studentNo?: string;
+    github?: string;
+    mbti?: string;
+    instagram?: string;
+    hobby?: string;
+    blog?: string;
 }

@@ -3,10 +3,12 @@ import { Tag } from "../components/Tag";
 import { useForm } from "react-hook-form";
 import { Inputs } from "../interface/inputs";
 import Select from "react-select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { positionOptions } from "../constants/positionOption";
 import { projectOptions } from "../constants/projectOption";
 import { customSelectStyle } from "../styles/selectStyle";
+import { useRecoilState } from "recoil";
+import { profileRecoilState } from "../recoil/profileState";
 
 const MyPage = () => {
     const {
@@ -15,13 +17,18 @@ const MyPage = () => {
         formState: { errors },
     } = useForm<Inputs>();
     const [selectedList, setSelectedList] = useState<string[]>();
+    const [profileState, setProfileState] = useRecoilState(profileRecoilState);
 
     const onSubmit = (data: Inputs) => {
         console.log("Submitted");
         console.log(data);
-        console.log(`selectedPosition : ${selectedPosition}`);
-        console.log(`selectedProject : ${selectedProject}`);
+        setProfileState(data);
     };
+
+    useEffect(() => {
+        console.log(`profile recoil state has been changed`);
+        console.log(profileState);
+    }, [profileState]);
 
     return (
         <div className="text-white">
@@ -101,7 +108,14 @@ const MyPage = () => {
                 </div>
                 <div className="flex justify-center">
                     <div className="w-[40%] mr-10 flex flex-col my-10">
-                        <input type="text" placeholder="이름" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("name")} />
+                        <input
+                            type="text"
+                            placeholder="이름"
+                            className="bg-black border-b-2 border-[#222222] p-2 opacity-60 focus:border-white focus:outline-none"
+                            {...register("name", { required: true })}
+                        />
+                        <p className="p-2 text-[#FF5050] text-sm">{errors.name && "이름을 입력해주세요!"}</p>
+
                         <input type="text" placeholder="학과" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("major")} />
                         <input type="text" placeholder="GitHub" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("github")} />
                         <input
