@@ -20,6 +20,8 @@ const MyPage = () => {
     const onSubmit = (data: Inputs) => {
         console.log("Submitted");
         console.log(data);
+        console.log(`selectedPosition : ${selectedPosition}`);
+        console.log(`selectedProject : ${selectedProject}`);
     };
 
     return (
@@ -95,17 +97,27 @@ const MyPage = () => {
                 </div>
                 <div className="flex justify-center">
                     <div className="w-[40%] mr-10 flex flex-col my-10">
-                        <input type="text" placeholder="이름" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("name")} />
-                        <input type="text" placeholder="학과" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("major")} />
-                        <input type="text" placeholder="GitHub" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("github")} />
-                        <input type="text" placeholder="Instagram" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("instagram")} />
-                        <input type="text" placeholder="Blog" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("blog")} />
+                        <input type="text" placeholder="이름" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("name")} />
+                        <input type="text" placeholder="학과" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("major")} />
+                        <input type="text" placeholder="GitHub" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("github")} />
+                        <input
+                            type="text"
+                            placeholder="Instagram"
+                            className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none"
+                            {...register("instagram")}
+                        />
+                        <input type="text" placeholder="Blog" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("blog")} />
                     </div>
                     <div className="w-[40%] ml-10 flex flex-col my-10">
-                        <input type="text" placeholder="생년월일" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("birthday")} />
-                        <input type="text" placeholder="학번" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("studentNo")} />
-                        <input type="text" placeholder="MBTI" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("mbti")} />
-                        <input type="text" placeholder="취미" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60" {...register("hobby")} />
+                        <input
+                            type="text"
+                            placeholder="생년월일"
+                            className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none"
+                            {...register("birthday")}
+                        />
+                        <input type="text" placeholder="학번" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("studentNo")} />
+                        <input type="text" placeholder="MBTI" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("mbti")} />
+                        <input type="text" placeholder="취미" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("hobby")} />
                     </div>
                 </div>
                 <div className="pb-[10rem]">
