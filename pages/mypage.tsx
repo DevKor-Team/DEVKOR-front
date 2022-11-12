@@ -3,6 +3,7 @@ import { Tag } from "../components/Tag";
 import { useForm } from "react-hook-form";
 import { Inputs } from "../interface/inputs";
 import Select from "react-select";
+import { useState } from "react";
 
 const MyPage = () => {
     const {
@@ -10,20 +11,84 @@ const MyPage = () => {
         handleSubmit,
         formState: { errors },
     } = useForm<Inputs>();
+    const [selectedPosition, setSelectedPosition] = useState<string>();
+    const [selectedProject, setSelectedProject] = useState<string>();
     const positionOptions = [
         { value: "", label: "주요 포지션" },
         { value: "Frontend", label: "Frontend" },
         { value: "Backend", label: "Backend" },
         { value: "MachineLearning", label: "ML" },
     ];
+
+    const projectOptions = [
+        { value: "", label: "소속 스터디/프로젝트" },
+        { value: "Frontend", label: "Frontend 스터디" },
+        { value: "Express", label: "Backend-Express 스터디" },
+        { value: "Nest", label: "Backend-Nest 스터디" },
+        { value: "ML", label: "ML 스터디" },
+        { value: "WebGL", label: "WebGL 스터디" },
+        { value: "MobileApp", label: "앱(Flutter) 스터디" },
+    ];
+
     const customStyles = {
         menu: () => ({
-            color: "white",
+            background: "#222222",
         }),
 
         control: () => ({
             width: "100%",
+            height: "3.5rem",
             display: "flex",
+            background: "#222222",
+            padding: "0.5rem",
+            borderRadius: "0.5rem",
+        }),
+        valueContainer: () => ({
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+        }),
+        singleValue: () => ({
+            fontSize: "1.05rem",
+            opacity: 0.6,
+            letterSpacing: ".01rem",
+            fontWeight: 400,
+        }),
+        indicatorsContainer: () => ({
+            display: "flex",
+            opacity: 0.6,
+        }),
+    };
+
+    const customStyles2 = {
+        menu: () => ({
+            background: "#222222",
+        }),
+
+        control: () => ({
+            width: "100%",
+            height: "3.5rem",
+            display: "flex",
+            background: "#222222",
+            padding: "0.5rem",
+            borderRadius: "0.5rem",
+        }),
+        valueContainer: () => ({
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+        }),
+        singleValue: () => ({
+            fontSize: "1.05rem",
+            opacity: 0.6,
+            letterSpacing: ".01rem",
+            fontWeight: 400,
+        }),
+        indicatorsContainer: () => ({
+            display: "flex",
+            opacity: 0.6,
         }),
     };
 
@@ -40,8 +105,8 @@ const MyPage = () => {
                     <div className="bg-[#222222] w-[50%] rounded-lg mr-5 h-[25rem]">
                         <h4 className="text-lg px-8 py-5">프로필</h4>
                         <div className="flex flex-col items-center">
-                            <div className="my-10">
-                                <Image src="/images/ProfileDefault.jpg" alt="profile" width="100" height="100" className="rounded-full" />
+                            <div className="mb-10 mt-5">
+                                <Image src="/images/ProfileDefault.jpg" alt="profile" width="120" height="120" className="rounded-full" />
                             </div>
                             <div className="flex flex-wrap justify-start w-[80%] items-end mb-5">
                                 <Tag name="FE" />
@@ -53,10 +118,47 @@ const MyPage = () => {
                         </div>
                     </div>
                     <div className="w-[50%] ml-5 h-[25rem]">
-                        <div className="px-10 py-3 bg-[#222222] flex justify-center rounded-lg h-[3.5rem]">
-                            <Select options={positionOptions} styles={customStyles} defaultInputValue="주요 포지션" />
+                        <div>
+                            <Select
+                                options={positionOptions}
+                                styles={customStyles}
+                                placeholder="주요 포지션"
+                                isClearable={false}
+                                isSearchable={false}
+                                menuPosition={"fixed"}
+                                theme={(theme) => ({
+                                    ...theme,
+                                    colors: {
+                                        ...theme.colors,
+                                        primary25: "#F6B55A",
+                                        primary: "black",
+                                    },
+                                })}
+                                onChange={(value) => {
+                                    setSelectedPosition(value?.value);
+                                }}
+                            />
                         </div>
-                        <div className="px-10 py-3 bg-[#222222] flex justify-center rounded-lg h-[3.5rem] mt-5">{/* <Select options={positionOptions} styles={customStyles} /> */}</div>
+                        <div className="mt-8">
+                            <Select
+                                options={projectOptions}
+                                styles={customStyles2}
+                                placeholder="소속 스터디/프로젝트"
+                                isClearable={false}
+                                isSearchable={false}
+                                theme={(theme) => ({
+                                    ...theme,
+                                    colors: {
+                                        ...theme.colors,
+                                        primary25: "#F6B55A",
+                                        primary: "black",
+                                    },
+                                })}
+                                onChange={(value) => {
+                                    setSelectedProject(value?.value);
+                                }}
+                            />
+                        </div>
 
                         <div className="mt-5">
                             <h2 className="">한줄 소개</h2>
@@ -80,7 +182,7 @@ const MyPage = () => {
                     </div>
                 </div>
                 <div className="pb-[10rem]">
-                    <input type="submit" value="저장하기" className="bg-[#222222] rounded-xl flex mx-auto px-[4rem] py-4 cursor-pointer" />
+                    <input type="submit" value="저장하기" className="bg-[#222222] rounded-xl flex mx-auto px-[4.5rem] py-4 text-lg font-medium cursor-pointer hover:bg-devkor hover:text-black" />
                 </div>
             </form>
         </div>
