@@ -106,39 +106,50 @@ const MyPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-center">
-                    <div className="w-[40%] mr-10 flex flex-col my-10">
+                <div className="flex justify-center my-10">
+                    <div className="w-[40%] mr-10 flex flex-col">
                         <input
                             type="text"
                             placeholder="이름"
-                            className="bg-black border-b-2 border-[#222222] p-2 opacity-60 focus:border-white focus:outline-none"
+                            className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none"
                             {...register("name", { required: true })}
                         />
-                        <p className="p-2 text-[#FF5050] text-sm">{errors.name && "이름을 입력해주세요!"}</p>
+                        {errors.name ? <p className="p-2 text-[#FF5050] text-sm">이름을 입력해주세요</p> : null}
+                        {/* <p className="p-2 text-[#FF5050] text-sm">{errors.name && "이름을 입력해주세요!"}</p> */}
 
-                        <input type="text" placeholder="학과" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("major")} />
-                        <input type="text" placeholder="GitHub" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("github")} />
+                        <input type="text" placeholder="학과" className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none" {...register("major")} />
+                        <input
+                            type="text"
+                            placeholder="GitHub"
+                            className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none"
+                            {...register("github")}
+                        />
                         <input
                             type="text"
                             placeholder="Instagram"
-                            className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none"
+                            className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none"
                             {...register("instagram")}
                         />
-                        <input type="text" placeholder="Blog" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("blog")} />
+                        <input type="text" placeholder="Blog" className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none" {...register("blog")} />
                     </div>
-                    <div className="w-[40%] ml-10 flex flex-col my-10">
+                    <div className="w-[40%] ml-10 flex flex-col">
                         <input
                             type="text"
                             placeholder="생년월일"
-                            className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none"
+                            className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none"
                             {...register("birthday")}
                         />
-                        <input type="text" placeholder="학번" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("studentNo")} />
-                        <input type="text" placeholder="MBTI" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("mbti")} />
-                        <input type="text" placeholder="취미" className="bg-black border-b-2 border-[#222222] my-10 p-2 opacity-60 focus:border-white focus:outline-none" {...register("hobby")} />
+                        <input
+                            type="text"
+                            placeholder="학번"
+                            className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none"
+                            {...register("studentNo")}
+                        />
+                        <input type="text" placeholder="MBTI" className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none" {...register("mbti")} />
+                        <input type="text" placeholder="취미" className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none" {...register("hobby")} />
                     </div>
                 </div>
-                <div className="pb-[10rem]">
+                <div className="pb-[10rem] mt-[8rem]">
                     <input type="submit" value="저장하기" className="bg-[#222222] rounded-xl flex mx-auto px-[4.5rem] py-4 text-lg font-medium cursor-pointer hover:bg-devkor hover:text-black" />
                 </div>
             </form>
