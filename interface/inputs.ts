@@ -4,6 +4,7 @@ import { ProjectEnum } from "./project.enum";
 export interface Inputs {
     position: PositionEnum;
     projects: ProjectEnum;
+    tags?: string[];
     description: string;
     name: string;
     birthday?: Date;

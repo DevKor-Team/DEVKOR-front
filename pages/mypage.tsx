@@ -18,15 +18,15 @@ const MyPage = () => {
     } = useForm<Inputs>();
     const [selectedList, setSelectedList] = useState<string[]>();
     const [profileState, setProfileState] = useRecoilState(profileRecoilState);
+    const onRemove = (selectedLabel: string) => {
+        setSelectedList(selectedList?.filter((label) => label !== selectedLabel));
+    };
 
     const onSubmit = (data: Inputs) => {
-        console.log("Submitted");
-        console.log(data);
         setProfileState(data);
     };
 
     useEffect(() => {
-        console.log(`profile recoil state has been changed`);
         console.log(profileState);
     }, [profileState]);
 
@@ -43,7 +43,7 @@ const MyPage = () => {
                             </div>
                             <div className="flex flex-wrap justify-center w-[80%] items-end mb-5">
                                 {selectedList?.map((x, idx) => {
-                                    return <Tag name={x} key={idx} />;
+                                    return <Tag name={x} onRemove={onRemove} key={idx} />;
                                 })}
                             </div>
                         </div>
@@ -67,9 +67,11 @@ const MyPage = () => {
                                         },
                                     })}
                                     onChange={(value) => {
-                                        if (selectedList && value && !selectedList.includes(value.value)) {
+                                        console.log(value);
+                                        console.log(value?.value);
+                                        if (selectedList && value && value.value !== "" && !selectedList.includes(value.value)) {
                                             setSelectedList([...selectedList, value.value]);
-                                        } else if (value && !selectedList?.includes(value.value)) {
+                                        } else if (value && value.value !== "" && !selectedList?.includes(value.value)) {
                                             setSelectedList([value.value]);
                                         }
                                     }}
@@ -91,9 +93,9 @@ const MyPage = () => {
                                         },
                                     })}
                                     onChange={(value) => {
-                                        if (selectedList && value && !selectedList.includes(value.value)) {
+                                        if (selectedList && value && value.value !== "" && !selectedList.includes(value.value)) {
                                             setSelectedList([...selectedList, value?.value]);
-                                        } else if (value && !selectedList?.includes(value.value)) {
+                                        } else if (value && value.value !== "" && !selectedList?.includes(value.value)) {
                                             setSelectedList([value.value]);
                                         }
                                     }}
@@ -115,7 +117,6 @@ const MyPage = () => {
                             {...register("name", { required: true })}
                         />
                         {errors.name ? <p className="p-2 text-[#FF5050] text-sm">이름을 입력해주세요</p> : null}
-                        {/* <p className="p-2 text-[#FF5050] text-sm">{errors.name && "이름을 입력해주세요!"}</p> */}
 
                         <input type="text" placeholder="학과" className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none" {...register("major")} />
                         <input
