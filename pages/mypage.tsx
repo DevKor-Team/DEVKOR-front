@@ -27,6 +27,10 @@ const MyPage = () => {
     };
 
     useEffect(() => {
+        setProfileState({ ...profileState, tags: selectedList });
+    }, [selectedList]);
+
+    useEffect(() => {
         console.log(profileState);
     }, [profileState]);
 
@@ -67,8 +71,6 @@ const MyPage = () => {
                                         },
                                     })}
                                     onChange={(value) => {
-                                        console.log(value);
-                                        console.log(value?.value);
                                         if (selectedList && value && value.value !== "" && !selectedList.includes(value.value)) {
                                             setSelectedList([...selectedList, value.value]);
                                         } else if (value && value.value !== "" && !selectedList?.includes(value.value)) {
