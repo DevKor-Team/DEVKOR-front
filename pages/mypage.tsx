@@ -4,6 +4,9 @@ import { useForm } from "react-hook-form";
 import { Inputs } from "../interface/inputs";
 import Select from "react-select";
 import { useState } from "react";
+import { positionOptions } from "../constants/positionOption";
+import { projectOptions } from "../constants/projectOption";
+import { customSelectStyle } from "../styles/selectStyle";
 
 const MyPage = () => {
     const {
@@ -13,84 +16,6 @@ const MyPage = () => {
     } = useForm<Inputs>();
     const [selectedPosition, setSelectedPosition] = useState<string>();
     const [selectedProject, setSelectedProject] = useState<string>();
-    const positionOptions = [
-        { value: "", label: "주요 포지션" },
-        { value: "Frontend", label: "Frontend" },
-        { value: "Backend", label: "Backend" },
-        { value: "MachineLearning", label: "ML" },
-    ];
-
-    const projectOptions = [
-        { value: "", label: "소속 스터디/프로젝트" },
-        { value: "Frontend", label: "Frontend 스터디" },
-        { value: "Express", label: "Backend-Express 스터디" },
-        { value: "Nest", label: "Backend-Nest 스터디" },
-        { value: "ML", label: "ML 스터디" },
-        { value: "WebGL", label: "WebGL 스터디" },
-        { value: "MobileApp", label: "앱(Flutter) 스터디" },
-    ];
-
-    const customStyles = {
-        menu: () => ({
-            background: "#222222",
-        }),
-
-        control: () => ({
-            width: "100%",
-            height: "4rem",
-            display: "flex",
-            background: "#222222",
-            padding: "0.5rem",
-            borderRadius: "0.5rem",
-        }),
-        valueContainer: () => ({
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-        }),
-        singleValue: () => ({
-            fontSize: "1.15rem",
-            opacity: 0.6,
-            letterSpacing: ".01rem",
-            fontWeight: 400,
-        }),
-        indicatorsContainer: () => ({
-            display: "flex",
-            opacity: 0.6,
-        }),
-    };
-
-    const customStyles2 = {
-        menu: () => ({
-            background: "#222222",
-        }),
-
-        control: () => ({
-            width: "100%",
-            height: "4rem",
-            display: "flex",
-            background: "#222222",
-            padding: "0.5rem",
-            borderRadius: "0.5rem",
-        }),
-        valueContainer: () => ({
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-        }),
-        singleValue: () => ({
-            fontSize: "1.15rem",
-            opacity: 0.6,
-            letterSpacing: ".01rem",
-            fontWeight: 400,
-        }),
-        indicatorsContainer: () => ({
-            display: "flex",
-            opacity: 0.6,
-        }),
-    };
 
     const onSubmit = (data: Inputs) => {
         console.log("Submitted");
@@ -101,7 +26,6 @@ const MyPage = () => {
         <div className="text-white">
             <div className="text-xl font-semibold my-10 mx-[10%] flex justify-start">마이페이지</div>
             <form className="mx-10" onSubmit={handleSubmit(onSubmit)}>
-                {/* <div className="my-5 text-xl font-semibold">마이페이지</div> */}
                 <div className="flex justify-center h-[36rem]">
                     <div className="bg-[#222222] w-[40%] rounded-lg mr-10 h-full">
                         <h4 className="text-lg px-8 pt-5 h-[10%] ">프로필</h4>
@@ -124,7 +48,7 @@ const MyPage = () => {
                             <div>
                                 <Select
                                     options={positionOptions}
-                                    styles={customStyles}
+                                    styles={customSelectStyle}
                                     placeholder="주요 포지션"
                                     isClearable={false}
                                     isSearchable={false}
@@ -145,7 +69,7 @@ const MyPage = () => {
                             <div className="mt-8">
                                 <Select
                                     options={projectOptions}
-                                    styles={customStyles2}
+                                    styles={customSelectStyle}
                                     placeholder="소속 스터디/프로젝트"
                                     isClearable={false}
                                     isSearchable={false}
