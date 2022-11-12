@@ -14,9 +14,7 @@ const MyPage = () => {
         handleSubmit,
         formState: { errors },
     } = useForm<Inputs>();
-    const [selectedPosition, setSelectedPosition] = useState<string>();
     const [selectedList, setSelectedList] = useState<string[]>();
-    const [selectedProject, setSelectedProject] = useState<string>();
 
     const onSubmit = (data: Inputs) => {
         console.log("Submitted");
@@ -62,7 +60,6 @@ const MyPage = () => {
                                         },
                                     })}
                                     onChange={(value) => {
-                                        setSelectedPosition(value?.value);
                                         if (selectedList && value && !selectedList.includes(value.value)) {
                                             setSelectedList([...selectedList, value.value]);
                                         } else if (value && !selectedList?.includes(value.value)) {
@@ -87,7 +84,6 @@ const MyPage = () => {
                                         },
                                     })}
                                     onChange={(value) => {
-                                        setSelectedProject(value?.value);
                                         if (selectedList && value && !selectedList.includes(value.value)) {
                                             setSelectedList([...selectedList, value?.value]);
                                         } else if (value && !selectedList?.includes(value.value)) {
