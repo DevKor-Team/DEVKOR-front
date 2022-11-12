@@ -9,6 +9,32 @@ import { projectOptions } from "../constants/projectOption";
 import { customSelectStyle } from "../styles/selectStyle";
 import { useRecoilState } from "recoil";
 import { profileRecoilState } from "../recoil/profileState";
+import { IoIosClose } from "react-icons/io";
+import { FiCheck } from "react-icons/fi";
+
+interface ValidType {
+    name: number;
+    major: number;
+    github: number;
+    instagram: number;
+    blog: number;
+    birthday: number;
+    studentNo: number;
+    mbti: number;
+    hobby: number;
+}
+
+const defaultValid = {
+    name: 0,
+    major: 0,
+    github: 0,
+    instagram: 0,
+    blog: 0,
+    birthday: 0,
+    studentNo: 0,
+    mbti: 0,
+    hobby: 0,
+};
 
 const MyPage = () => {
     const {
@@ -18,6 +44,9 @@ const MyPage = () => {
     } = useForm<Inputs>();
     const [selectedList, setSelectedList] = useState<string[]>();
     const [profileState, setProfileState] = useRecoilState(profileRecoilState);
+    const [onImageModal, setOnImageModal] = useState<boolean>(false);
+    const [major, onMajor] = useState(false);
+    const [valid, setValid] = useState<ValidType>(defaultValid);
     const onRemove = (selectedLabel: string) => {
         setSelectedList(selectedList?.filter((label) => label !== selectedLabel));
     };
@@ -35,14 +64,42 @@ const MyPage = () => {
     }, [profileState]);
 
     return (
-        <div className="text-white">
+        <div className="text-white relative">
             <div className="text-xl font-semibold my-10 mx-[10%] flex justify-start">마이페이지</div>
+            {onImageModal ? (
+                <section className="flex flex-col justify-center items-center w-[60%] h-[35rem] absolute top-[5%] left-[20%] bg-black z-[10000]">
+                    <div
+                        className="w-full flex justify-end pt-3 px-5 cursor-pointer"
+                        onClick={() => {
+                            setOnImageModal(false);
+                        }}
+                    >
+                        <IoIosClose className="fill-white text-4xl" />
+                    </div>
+                    <div className="flex items-start justify-center h-[75%] w-full mx-10 mt-10">
+                        <div className="w-[40%] mx-5 h-[90%] flex justify-center items-center border-2 border-dashed border-white rounded-lg text-xl">Drag & Drop</div>
+                        <div className="w-[40%] mx-5 flex flex-col items-center">
+                            <button className="bg-[#222222] py-5 px-[3rem] rounded-xl font-semibold my-6 cursor-pointer w-[70%]">랜덤 이미지</button>
+                            <button className="bg-[#222222] py-5 px-[3rem] rounded-xl font-semibold my-6 cursor-pointer w-[70%]">기본 이미지</button>
+                            <button className="bg-[#222222] py-5 px-[3rem] rounded-xl font-semibold my-6 cursor-pointer w-[70%]">로컬에서 찾기</button>
+                        </div>
+                    </div>
+                    <div className="h-[20%]">
+                        <button className="bg-devkor text-black py-5 px-[3rem] rounded-xl font-semibold  cursor-pointer hover:scale-105 transition-all duration-150">적용하기</button>
+                    </div>
+                </section>
+            ) : null}
             <form className="mx-10" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex justify-center h-[36rem]">
                     <div className="bg-[#222222] w-[40%] rounded-lg mr-10 h-full">
                         <h4 className="text-lg px-8 pt-5 h-[10%] ">프로필</h4>
                         <div className="flex flex-col items-center h-[90%]">
-                            <div className="pt-8 h-[50%]">
+                            <div
+                                className="pt-8 h-[50%] cursor-pointer"
+                                onClick={() => {
+                                    setOnImageModal(true);
+                                }}
+                            >
                                 <Image src="/images/ProfileDefault.jpg" alt="profile" width="160" height="160" className="rounded-full" />
                             </div>
                             <div className="flex flex-wrap justify-center w-[80%] items-end mb-5">
@@ -120,7 +177,25 @@ const MyPage = () => {
                         />
                         {errors.name ? <p className="p-2 text-[#FF5050] text-sm">이름을 입력해주세요</p> : null}
 
-                        <input type="text" placeholder="학과" className="bg-black border-b-2 border-[#222222] mt-[5rem] p-2 opacity-60 focus:border-white focus:outline-none" {...register("major")} />
+                        <div className="relative mt-[5rem] w-full">
+                            {valid.major === 1 ? (
+                                <label className="absolute top-3 right-3">
+                                    <FiCheck className="text-devkor" />
+                                </label>
+                            ) : null}
+
+                            <input
+                                type="text"
+                                placeholder="학과"
+                                className="bg-black border-b-2 border-[#222222] w-full p-2 focus:border-white focus:outline-none"
+                                {...register("major")}
+                                onChange={(e) => {
+                                    if (e.target.value) setValid({ ...valid, major: 1 });
+                                    else setValid({ ...valid, major: 0 });
+                                }}
+                            />
+                        </div>
+
                         <input
                             type="text"
                             placeholder="GitHub"
