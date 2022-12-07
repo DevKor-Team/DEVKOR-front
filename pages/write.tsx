@@ -6,6 +6,19 @@ import { TagButtonType, TagButton, TagList } from "../components/Tags";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 
+import { TextState, TextAreaTextApi } from "@uiw/react-md-editor";
+
+const markdownImage = {
+  execute: (state: TextState, api: TextAreaTextApi) => {
+    let imgurl = "";
+
+    /* upload image to S3, and get image url */
+
+    let modifyText = `![](${imgurl}) `;
+    api.replaceSelection(modifyText);
+  },
+};
+
 const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
 const Write: NextPage = () => {
@@ -68,6 +81,27 @@ const Write: NextPage = () => {
             setContent(val!);
           }}
           height={500}
+          components={{
+            toolbar: (command, disabled, executeCommand) => {
+              if (command.keyCommand === "image") {
+                console.log(command.groupName);
+                return (
+                  <button
+                    aria-label="Insert code"
+                    disabled={disabled}
+                    onClick={(evn) => {
+                      evn.stopPropagation();
+                      executeCommand(markdownImage);
+
+                      /* Upload Image to S3 and paste link */
+                    }}
+                  >
+                    {command.icon}
+                  </button>
+                );
+              }
+            },
+          }}
         />
       </div>
       <div className="mt-10">
