@@ -21,7 +21,7 @@ const Write: NextPage = () => {
             </p>
           </div>
         </div>
-        <div className="subjects mt-10">
+        <div className="subjects mt-4">
           <div className="flex items-center">
             {TagList.map((menu, idx) => (
               <TagButton
@@ -38,7 +38,7 @@ const Write: NextPage = () => {
           <div className="inline-block">
             <h1 className="text-4xl font-bold">제목</h1>
           </div>
-          <div className="relative mt-6">
+          <div className="relative mt-4">
             <input
               className="block p-4 pl-6 w-full text-base text-black bg-white rounded-xl outline-none"
               placeholder="멋있는 글제목"
