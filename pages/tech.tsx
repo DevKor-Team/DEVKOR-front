@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React, { useState, SetStateAction } from "react";
 import PostCard from "../components/PostCard";
 import { GoSearch } from "react-icons/go";
@@ -7,6 +8,7 @@ import { TagButtonType, TagButton, TagList } from "../components/Tags";
 
 // Blog Page
 const Blog: NextPage = () => {
+  const router = useRouter();
   const [sectionIdx, setSectionIdx] = useState<number>(0);
 
   return (
@@ -22,7 +24,10 @@ const Blog: NextPage = () => {
             <h1 className="text-4xl font-bold">⚙️Tech Blog</h1>
             <p className="text-xl mt-3">대충 멋진 설명</p>
           </div>
-          <button className="bg-button hover:bg-white hover:text-black font-bold w-40 py-2 px-4 rounded-full sm:float-right flex justify-center">
+          <button
+            className="bg-button hover:bg-white hover:text-black font-bold w-40 py-2 px-4 rounded-full sm:float-right flex justify-center"
+            onClick={() => router.push("/write")}
+          >
             새 글 작성
           </button>
         </div>
