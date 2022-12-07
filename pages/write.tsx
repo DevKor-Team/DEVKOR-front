@@ -1,10 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import React, { useState, SetStateAction } from "react";
 import { TagButtonType, TagButton, TagList } from "../components/Tags";
+import "@uiw/react-md-editor/markdown-editor.css";
+import "@uiw/react-markdown-preview/markdown.css";
+
+const MDEditor = dynamic(() => import("@uiw/react-md-editor"), { ssr: false });
 
 const Write: NextPage = () => {
   const [sectionIdx, setSectionIdx] = useState<number>(0);
+  const [content, setContent] = useState<string>("");
+
   return (
     <div>
       <Head>
@@ -40,7 +47,7 @@ const Write: NextPage = () => {
           </div>
           <div className="relative mt-4">
             <input
-              className="block p-4 pl-6 w-full text-base text-black bg-white rounded-xl outline-none"
+              className="block p-4 pl-6 w-full h-12 text-base text-black bg-white rounded-xl outline-none"
               placeholder="멋있는 글제목"
             />
           </div>
@@ -54,9 +61,15 @@ const Write: NextPage = () => {
           </div>
         </div>
       </main>
-      {
-        // Markdown Editor goes here
-      }
+      <div className="mt-6">
+        <MDEditor
+          value={content}
+          onChange={(val) => {
+            setContent(val!);
+          }}
+          height={500}
+        />
+      </div>
       <div className="mt-10">
         <button className="bg-button hover:bg-white hover:text-black font-bold w-40 py-2 px-4 rounded-full sm:float-right flex justify-center">
           등록하기
