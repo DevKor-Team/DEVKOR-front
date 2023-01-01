@@ -2,9 +2,9 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useState, SetStateAction } from "react";
-import PostCard from "../components/PostCard";
+import PostCard from "../../components/PostCard";
 import { GoSearch } from "react-icons/go";
-import { TagButtonType, TagButton, TagList } from "../components/Tags";
+import { TagButtonType, TagButton, TagList } from "../../components/Tags";
 
 // Blog Page
 const Blog: NextPage = () => {
@@ -26,7 +26,7 @@ const Blog: NextPage = () => {
           </div>
           <button
             className="bg-button hover:bg-white hover:text-black font-bold w-40 py-2 px-4 rounded-full sm:float-right flex justify-center"
-            onClick={() => router.push("/write")}
+            onClick={() => router.push("/tech/write")}
           >
             새 글 작성
           </button>

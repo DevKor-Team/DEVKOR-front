@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import React, { useState, SetStateAction } from "react";
-import { TagButtonType, TagButton, TagList } from "../components/Tags";
+import { TagButtonType, TagButton, TagList } from "../../components/Tags";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
 
