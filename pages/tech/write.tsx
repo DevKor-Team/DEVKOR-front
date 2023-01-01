@@ -56,25 +56,11 @@ const Write: NextPage = () => {
           </div>
         </div>
 
-        <form className="searchbar mt-10">
-          <div className="inline-block">
-            <h1 className="text-4xl font-bold">제목</h1>
-          </div>
-          <div className="relative mt-4">
-            <input
-              className="block p-4 pl-6 w-full h-12 text-base text-black bg-white rounded-xl outline-none"
-              placeholder="멋있는 글제목"
-            />
-          </div>
-        </form>
-
-        <div className="mt-10">
-          <div className="inline-block">
-            <h1 className="text-4xl font-bold">본문</h1>
-            <p className="text-xl mt-3">
-              본문은 MarkDown 형식으로 작성해 주세요!
-            </p>
-          </div>
+        <div className="searchbar mt-10">
+          <input
+            className="text-4xl font-bold border-none bg-transparent focus:outline-none"
+            placeholder="제목을 입력해주세요"
+          />
         </div>
       </section>
 
@@ -83,6 +69,9 @@ const Write: NextPage = () => {
           value={content}
           onChange={(val) => {
             setContent(val!);
+          }}
+          textareaProps={{
+            placeholder: "멋진 Tech 소식을 공유해주세요!",
           }}
           height={500}
           components={{
