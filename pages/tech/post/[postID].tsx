@@ -8,6 +8,7 @@ import { PostTag } from "../../../components/Tags";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import React, { useState } from "react";
+import { PostComment } from "../../../components/PostComment";
 
 const PostView: NextPage = () => {
   const router = useRouter();
@@ -126,7 +127,14 @@ const PostView: NextPage = () => {
       </section>
 
       {/* 댓글 리스트 영역 */}
-      <section className="mt-8"></section>
+      <section className="mt-28 w-9/12">
+        <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
+        <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
+        <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
+        <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
+        <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
+        <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
+      </section>
     </div>
   );
 };
