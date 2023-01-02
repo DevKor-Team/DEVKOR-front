@@ -1,16 +1,19 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import { FiHeart, FiDownload } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa"; //꽉 찬 하트
 import { IoChatbox } from "react-icons/io5";
 import { PostTag } from "../../../components/Tags";
-import ReactDom from "react-dom";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import React, { useState } from "react";
 
 const PostView: NextPage = () => {
   const router = useRouter();
   const { postID } = router.query;
+  /* content: 나중에 fetch해서 마크다운 내용 받을 state*/
+  // const [content, setContent] = useState<string>('');
 
   const markdown = `
   # 제목이다.
@@ -80,10 +83,36 @@ const PostView: NextPage = () => {
         </div>
       </section>
 
-      {/* 포스트 본문 */}
+      {/* 포스트 본문 영역 */}
       <article className="w-9/12 mt-16 block">
         <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />,
       </article>
+
+      {/* 작성자 프로필 영역 */}
+      <section className="w-9/12 pb-5 h-fit mt-32 flex border-b border-[#d9d9d9]">
+        <Image
+          src={"/images/example-profile.png"}
+          width="125"
+          height="125"
+          className="rounded-full"
+        />
+        <div className="flex flex-col justify-center ml-8">
+          <span className="font-bold text-2xl hover:underline hover:underline-offset-4 hover:cursor-pointer">
+            노정훈회장님
+          </span>
+          <p className="mt-2 text-xl">
+            한 줄 소개 한 줄 소개 한 줄 소개 한 줄 소개 한 줄 소개
+          </p>
+        </div>
+      </section>
+
+      {/* 하단 댓글 영역 */}
+      <section className="w-9/12 mt-24">
+        <div>
+          <span className="text-3xl font-bold text-devkor">3</span>
+          <span className="text-3xl font-bold">개의 댓글</span>
+        </div>
+      </section>
     </div>
   );
 };
