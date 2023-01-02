@@ -2,9 +2,9 @@ import React, { useState, SetStateAction } from "react";
 // Tag Button Type Interface
 export interface TagButtonType {
   name: string;
-  mapIdx?: number;
-  sectionIdx?: number;
-  setSectionIdx?: React.Dispatch<SetStateAction<number>>;
+  mapIdx: number;
+  sectionIdx: number;
+  setSectionIdx: React.Dispatch<SetStateAction<number>>;
 }
 
 // Tag Button Component
@@ -22,6 +22,15 @@ export const TagButton = ({
       onClick={() => setSectionIdx(mapIdx)}
     >
       {name}
+    </button>
+  );
+};
+
+// PostView Tag
+export const PostTag = ({ category }: { category: string }) => {
+  return (
+    <button className="bg-devkor text-black font-bold w-28 py-2 mr-4 rounded-full flex justify-center">
+      {category}
     </button>
   );
 };
