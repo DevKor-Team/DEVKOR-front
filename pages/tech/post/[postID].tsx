@@ -91,7 +91,7 @@ const PostView: NextPage = () => {
       {/* 작성자 프로필 영역 */}
       <section className="w-9/12 pb-5 h-fit mt-32 flex border-b border-[#d9d9d9]">
         <Image
-          src={"/images/example-profile.png"}
+          src="/images/example-profile.png"
           width="125"
           height="125"
           className="rounded-full"
@@ -106,13 +106,27 @@ const PostView: NextPage = () => {
         </div>
       </section>
 
-      {/* 하단 댓글 영역 */}
+      {/* 하단 댓글정보 및 댓글작성 영역 */}
       <section className="w-9/12 mt-24">
-        <div>
+        <div id="comment-count">
           <span className="text-3xl font-bold text-devkor">3</span>
           <span className="text-3xl font-bold">개의 댓글</span>
         </div>
+        <div id="comment-write" className="mt-8">
+          <textarea
+            className="w-full h-24 min-h-24 mb-4 text-lg resize-none rounded-[4px] bg-[#1e1e1e] focus:outline-none py-[1rem] px-[1.5rem]"
+            placeholder="댓글로 의견을 나눠보세요"
+          />
+        </div>
+        <div className="flex justify-end">
+          <button className="bg-devkor text-black font-bold text-xl w-32 h-10 rounded-md">
+            댓글 작성
+          </button>
+        </div>
       </section>
+
+      {/* 댓글 리스트 영역 */}
+      <section className="mt-8"></section>
     </div>
   );
 };
