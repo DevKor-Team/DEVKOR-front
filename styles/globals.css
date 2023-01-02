@@ -16,6 +16,11 @@ body {
   color: white;
 }
 
+.prose > * {
+  color: white;
+  font-family: Noto Sans KR;
+}
+
 a {
   color: inherit;
   text-decoration: none;

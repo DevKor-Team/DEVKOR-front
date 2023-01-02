@@ -10,7 +10,7 @@ const PostView: NextPage = () => {
   const { postID } = router.query;
 
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-col justify-center items-center">
       {/* 포스트 기본 정보(태그, 아이콘, 제목, 작성자, 수정/삭제 버튼) 섹션 */}
       <section className="w-9/12 mt-24 flex flex-col justify-center">
         <div className="flex justify-between">
@@ -57,6 +57,9 @@ const PostView: NextPage = () => {
       </section>
 
       {/* 포스트 본문 */}
+      <article className="w-9/12 block prose">
+        <h1>본문내용**</h1>
+      </article>
     </div>
   );
 };

@@ -17,5 +17,5 @@ module.exports = {
       noto: ["Noto Sans KR"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
