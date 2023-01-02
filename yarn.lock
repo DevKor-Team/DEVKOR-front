@@ -2871,6 +2871,13 @@
     "web-namespaces" "^2.0.0"
     "zwitch" "^2.0.0"
 
+"hast-util-sanitize@^4.0.0":
+  "integrity" "sha512-pw56+69jq+QSr/coADNvWTmBPDy+XsmwaF5KnUys4/wM1jt/fZdl7GPxhXXXYdXnz3Gj3qMkbUCH2uKjvX0MgQ=="
+  "resolved" "https://registry.npmjs.org/hast-util-sanitize/-/hast-util-sanitize-4.0.0.tgz"
+  "version" "4.0.0"
+  dependencies:
+    "@types/hast" "^2.0.0"
+
 "hast-util-select@~5.0.1":
   "integrity" "sha512-QGN5o7N8gq1BhUX96ApLE8izOXlf+IPkOVGXcp9Dskdd3w0OqZrn6faPAmS0/oVogwJOd0lWFSYmBK75e+030g=="
   "resolved" "https://registry.npmjs.org/hast-util-select/-/hast-util-select-5.0.2.tgz"
@@ -3432,7 +3439,7 @@
     "mdast-util-gfm-task-list-item" "^1.0.0"
     "mdast-util-to-markdown" "^1.0.0"
 
-"mdast-util-to-hast@^12.1.0":
+"mdast-util-to-hast@^12.0.0", "mdast-util-to-hast@^12.1.0":
   "integrity" "sha512-a21xoxSef1l8VhHxS1Dnyioz6grrJkoaCUgGzMD/7dWHvboYX3VW53esRUfB5tgTyz4Yos1n25SPcj35dJqmAg=="
   "resolved" "https://registry.npmjs.org/mdast-util-to-hast/-/mdast-util-to-hast-12.2.4.tgz"
   "version" "12.2.4"
@@ -4452,7 +4459,7 @@
     "rehype-stringify" "^9.0.0"
     "unified" "^10.0.0"
 
-"remark-gfm@~3.0.1":
+"remark-gfm@^3.0.1", "remark-gfm@~3.0.1":
   "integrity" "sha512-lEFDoi2PICJyNrACFOfDD3JlLkuSbOa5Wd8EPt06HUdptv8Gn0bxYTdbU/XXQ3swAPkEaGxxPN9cbnMHvVu1Ig=="
   "resolved" "https://registry.npmjs.org/remark-gfm/-/remark-gfm-3.0.1.tgz"
   "version" "3.0.1"
@@ -4460,6 +4467,17 @@
     "@types/mdast" "^3.0.0"
     "mdast-util-gfm" "^2.0.0"
     "micromark-extension-gfm" "^2.0.0"
+    "unified" "^10.0.0"
+
+"remark-html@^15.0.1":
+  "integrity" "sha512-7ta5UPRqj8nP0GhGMYUAghZ/DRno7dgq7alcW90A7+9pgJsXzGJlFgwF8HOP1b1tMgT3WwbeANN+CaTimMfyNQ=="
+  "resolved" "https://registry.npmjs.org/remark-html/-/remark-html-15.0.1.tgz"
+  "version" "15.0.1"
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    "hast-util-sanitize" "^4.0.0"
+    "hast-util-to-html" "^8.0.0"
+    "mdast-util-to-hast" "^12.0.0"
     "unified" "^10.0.0"
 
 "remark-parse@^10.0.0":
@@ -4479,6 +4497,25 @@
     "@types/hast" "^2.0.0"
     "@types/mdast" "^3.0.0"
     "mdast-util-to-hast" "^12.1.0"
+    "unified" "^10.0.0"
+
+"remark-stringify@^10.0.0":
+  "integrity" "sha512-6wV3pvbPvHkbNnWB0wdDvVFHOe1hBRAx1Q/5g/EpH4RppAII6J8Gnwe7VbHuXaoKIF6LAg6ExTel/+kNqSQ7lw=="
+  "resolved" "https://registry.npmjs.org/remark-stringify/-/remark-stringify-10.0.2.tgz"
+  "version" "10.0.2"
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    "mdast-util-to-markdown" "^1.0.0"
+    "unified" "^10.0.0"
+
+"remark@^14.0.2":
+  "integrity" "sha512-A3ARm2V4BgiRXaUo5K0dRvJ1lbogrbXnhkJRmD0yw092/Yl0kOCZt1k9ZeElEwkZsWGsMumz6qL5MfNJH9nOBA=="
+  "resolved" "https://registry.npmjs.org/remark/-/remark-14.0.2.tgz"
+  "version" "14.0.2"
+  dependencies:
+    "@types/mdast" "^3.0.0"
+    "remark-parse" "^10.0.0"
+    "remark-stringify" "^10.0.0"
     "unified" "^10.0.0"
 
 "resolve-from@^4.0.0":

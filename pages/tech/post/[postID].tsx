@@ -4,10 +4,34 @@ import { FiHeart, FiDownload } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa"; //꽉 찬 하트
 import { IoChatbox } from "react-icons/io5";
 import { PostTag } from "../../../components/Tags";
+import ReactDom from "react-dom";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const PostView: NextPage = () => {
   const router = useRouter();
   const { postID } = router.query;
+
+  const markdown = `
+  # 제목이다.
+  ## 제목2이다.
+
+  A paragraph with *emphasis* and **strong importance**.
+
+> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
+
+\`code\`
+
+### 리스트들
+* Lists
+* todo
+* done
+
+|A|B|
+|--|--|
+|ghgh|hjh|
+
+`;
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -57,8 +81,8 @@ const PostView: NextPage = () => {
       </section>
 
       {/* 포스트 본문 */}
-      <article className="w-9/12 block prose">
-        <h1>본문내용**</h1>
+      <article className="w-9/12 mt-16 block">
+        <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm]} />,
       </article>
     </div>
   );
