@@ -9,6 +9,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import React, { useState } from "react";
 import { PostComment } from "../../../components/PostComment";
+import PostCard from "../../../components/PostCard";
 
 const PostView: NextPage = () => {
   const router = useRouter();
@@ -73,6 +74,7 @@ const PostView: NextPage = () => {
               2023년 1월 2일
             </span>
           </div>
+          {/* TODO: 본인일 경우에만 수정 및 삭제 버튼 노출하기 */}
           <div className="flex space-x-3">
             <button className="text-base text-divider font-semibold hover:text-white hover:cursor-pointer">
               수정
@@ -134,6 +136,19 @@ const PostView: NextPage = () => {
         <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
         <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
         <PostComment>댓글 댓글 댓글 댓글 댓글 댓글</PostComment>
+      </section>
+
+      {/* 다른 주제의 포스트 영역 3개까지 추천 */}
+      <section className="mt-28 w-9/12">
+        <div>
+          <span className="text-2xl font-bold text-devkor">FrontEnd</span>
+          <span className="text-2xl font-bold"> 주제의 다른 포스트</span>
+        </div>
+        <div className="flex justify-between w-full mt-10 mb-32">
+          <PostCard />
+          <PostCard />
+          <PostCard />
+        </div>
       </section>
     </div>
   );
