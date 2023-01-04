@@ -31,6 +31,7 @@ const Header = () => {
           alt="profile"
           width="25"
           height="25"
+          layout="fixed"
         />
       </section>
     </header>
