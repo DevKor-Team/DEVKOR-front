@@ -29,3 +29,15 @@ export const SingleMenu = ({ title }: MenuProps) => {
     </div>
   );
 };
+
+export const WebMenuBar = () => {
+  return (
+    <>
+      {MenuList.map((menu) => (
+        <SingleMenu title={menu} />
+      ))}
+    </>
+  );
+};
+
+export const MobileHeaderDropdown = () => {};

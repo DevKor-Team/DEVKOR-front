@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { SingleMenu, MenuList } from "./HeaderItem";
+import { WebMenuBar } from "./HeaderItem";
 import Link from "next/link";
 import { useState } from "react";
 import Hamburger from "hamburger-react";
@@ -22,9 +22,7 @@ const Header = () => {
         </div>
         {/* 메뉴 리스트 */}
         <div className="items-center py-[1.875rem] hidden lg:flex">
-          {MenuList.map((menu) => (
-            <SingleMenu title={menu} />
-          ))}
+          <WebMenuBar />
         </div>
       </section>
       {/* 마이페이지 아이콘 or 햄버거(모바일)*/}
