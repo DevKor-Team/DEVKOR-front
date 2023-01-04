@@ -141,11 +141,13 @@ const PostView: NextPage = () => {
 
         {/* 다른 주제의 포스트 영역 3개까지 추천 */}
         <section className="mt-28 w-full">
-          <div>
+          <div className="flex justify-center lg:justify-start">
             <span className="text-2xl font-bold text-devkor">FrontEnd</span>
-            <span className="text-2xl font-bold"> 주제의 다른 포스트</span>
+            <span className="text-2xl font-bold ml-1.5">
+              주제의 다른 포스트
+            </span>
           </div>
-          <div className="flex flex-col space-y-6 lg:space-y-0 lg:flex-row md:justify-between w-full mt-10 mb-32">
+          <div className="flex flex-col items-center space-y-6 lg:space-y-0 lg:flex-row md:justify-between w-full mt-10 mb-32">
             <PostCard />
             <PostCard />
             <PostCard />
