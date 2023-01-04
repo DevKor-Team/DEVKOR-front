@@ -5,7 +5,7 @@ import Image from "next/image";
 export const PostComment = ({ children }: { children: string }) => {
   return (
     <div className="w-full py-6 border-b border-[#2A2A2A]">
-      <div className="w-full mb-6 flex space-x-3 md:space-x-6">
+      <div className="w-full mb-6 flex">
         <div className="md:hidden flex items-center">
           <Image
             src="/images/example-profile.png"
@@ -24,8 +24,8 @@ export const PostComment = ({ children }: { children: string }) => {
             className="rounded-full"
           />
         </div>
-        <div className="flex flex-col justify-center">
-          <span className="font-bold text-basemd:text-lg">안수진(OB)</span>
+        <div className="flex flex-col justify-center ml-3 md:ml-6">
+          <span className="font-bold text-base md:text-xl">안수진(OB)</span>
           <span className="text-sm md:text-base text-divider">
             2022년 12월 3일
           </span>
