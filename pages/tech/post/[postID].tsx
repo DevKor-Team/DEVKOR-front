@@ -60,7 +60,7 @@ const PostView: NextPage = () => {
               />
             </div>
           </div>
-          <h1 className="text-3xl md:text-4xl leading-snug md:text-5xl font-bold font-noto mt-6">
+          <h1 className="text-3xl md:text-4xl leading-snug md:leading-snug md:text-5xl font-bold font-noto mt-6">
             Next.js의 Hydration 파헤치기
           </h1>
           <div className="mt-10 flex justify-between">
