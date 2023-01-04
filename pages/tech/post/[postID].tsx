@@ -144,7 +144,7 @@ const PostView: NextPage = () => {
           <span className="text-2xl font-bold text-devkor">FrontEnd</span>
           <span className="text-2xl font-bold"> 주제의 다른 포스트</span>
         </div>
-        <div className="flex justify-between w-full mt-10 mb-32">
+        <div className="flex flex-col space-y-6 lg:space-y-0 lg:flex-row md:justify-between w-full mt-10 mb-32">
           <PostCard />
           <PostCard />
           <PostCard />
