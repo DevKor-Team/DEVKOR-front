@@ -21,9 +21,9 @@ const Header = () => {
           </Link>
         </div>
         {/* 메뉴 리스트 */}
-        <div className="items-center py-[1.875rem] hidden lg:flex">
+        <nav className="items-center py-[1.875rem] hidden lg:flex">
           <WebMenuBar />
-        </div>
+        </nav>
       </section>
       {/* 마이페이지 아이콘 or 햄버거(모바일)*/}
       <section className="py-[1.875rem] flex items-center cursor-pointer">
