@@ -4,8 +4,8 @@ import Link from "next/link";
 
 const Header = () => {
   return (
-    <header className="w-full flex bg-black justify-between items-center h-[5rem]">
-      <section className="flex pl-[9.375rem]">
+    <header className="w-full px-[9.375rem] flex bg-black justify-between items-center h-[5rem]">
+      <section className="flex">
         <div className="flex items-center pr-[2rem] w-[6.75rem] h-[5.625rem] hover:cursor-pointer">
           <Link href="/">
             <Image
@@ -25,7 +25,7 @@ const Header = () => {
           <SingleMenu title="Apply" />
         </div>
       </section>
-      <section className="pr-[9.375rem] py-[1.875rem] flex items-center cursor-pointer">
+      <section className="py-[1.875rem] flex items-center cursor-pointer">
         <Image
           src="/images/profile-logo.png"
           alt="profile"
