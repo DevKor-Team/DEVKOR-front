@@ -5,6 +5,15 @@ interface MenuProps {
   title: string;
 }
 
+export const MenuList = [
+  "Tech",
+  "Project",
+  "Study",
+  "Question",
+  "Members",
+  "Apply",
+];
+
 export const SingleMenu = ({ title }: MenuProps) => {
   const router = useRouter();
   const routerPath = title.toLowerCase();
