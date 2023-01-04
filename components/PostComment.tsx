@@ -5,19 +5,35 @@ import Image from "next/image";
 export const PostComment = ({ children }: { children: string }) => {
   return (
     <div className="w-full py-6 border-b border-[#2A2A2A]">
-      <div className="w-full mb-6 flex space-x-6">
-        <Image
-          src="/images/example-profile.png"
-          width="75"
-          height="75"
-          className="rounded-full"
-        />
+      <div className="w-full mb-6 flex space-x-3 md:space-x-6">
+        <div className="md:hidden flex items-center">
+          <Image
+            src="/images/example-profile.png"
+            width="45"
+            height="45"
+            layout="fixed"
+            className="rounded-full"
+          />
+        </div>
+        <div className="hidden md:block">
+          <Image
+            src="/images/example-profile.png"
+            width="75"
+            height="75"
+            layout="fixed"
+            className="rounded-full"
+          />
+        </div>
         <div className="flex flex-col justify-center">
-          <span className="font-bold text-lg">안수진(OB)</span>
-          <span className="text-base text-divider">2022년 12월 3일</span>
+          <span className="font-bold text-basemd:text-lg">안수진(OB)</span>
+          <span className="text-sm md:text-base text-divider">
+            2022년 12월 3일
+          </span>
         </div>
       </div>
-      <div className="w-full text-lg my-[1.125rem]">{children}</div>
+      <div className="w-full text-base md:text-lg my-[1.125rem]">
+        {children}
+      </div>
     </div>
   );
 };

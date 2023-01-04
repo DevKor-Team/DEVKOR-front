@@ -42,45 +42,42 @@ const PostView: NextPage = () => {
     <div className="w-full flex justify-center">
       <div className="flex flex-col justify-center items-center w-10/12 lg:w-9/12">
         {/* 포스트 기본 정보(태그, 아이콘, 제목, 작성자, 수정/삭제 버튼) 섹션 */}
-        <section className="w-full mt-24 flex flex-col justify-center">
+        <section className="w-full mt-10 lg:mt-24 flex flex-col justify-center">
           <div className="flex justify-between">
             <PostTag category="FrontEnd" />
             <div className="flex items-center space-x-4">
               <FiHeart
                 stroke="#F6B55A"
-                size="24"
-                className="hover:cursor-pointer"
+                className="hover:cursor-pointer w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
               />
               <FiDownload
                 stroke="#F6B55A"
-                size="24"
-                className="hover:cursor-pointer"
+                className="hover:cursor-pointer w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
               />
               <IoChatbox
                 fill="#F6B55A"
-                size="24"
-                className="hover:cursor-pointer"
+                className="hover:cursor-pointer w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
               />
             </div>
           </div>
-          <h1 className="text-5xl font-bold font-noto mt-6">
+          <h1 className="text-3xl md:text-4xl leading-snug md:text-5xl font-bold font-noto mt-6">
             Next.js의 Hydration 파헤치기
           </h1>
           <div className="mt-10 flex justify-between">
             <div className="flex jusfity-between space-x-3">
-              <span className="text-base text-devkor font-semibold">
+              <span className="text-sm md:text-base text-devkor font-semibold">
                 by 노정훈회장님
               </span>
-              <span className="text-base text-divider font-semibold">
+              <span className="text-sm md:text-base text-divider font-semibold">
                 2023년 1월 2일
               </span>
             </div>
             {/* TODO: 본인일 경우에만 수정 및 삭제 버튼 노출하기 */}
-            <div className="flex space-x-3">
-              <button className="text-base text-divider font-semibold hover:text-white hover:cursor-pointer">
+            <div className="flex space-x-2 md:space-x-3">
+              <button className="text-sm md:text-base text-divider font-semibold hover:text-white hover:cursor-pointer">
                 수정
               </button>
-              <button className="text-base text-divider font-semibold hover:text-white hover:cursor-pointer">
+              <button className="text-sm md:text-base text-divider font-semibold hover:text-white hover:cursor-pointer">
                 삭제
               </button>
             </div>
@@ -94,17 +91,29 @@ const PostView: NextPage = () => {
 
         {/* 작성자 프로필 영역 */}
         <section className="w-full pb-5 h-fit mt-32 flex border-b border-[#d9d9d9]">
-          <Image
-            src="/images/example-profile.png"
-            width="125"
-            height="125"
-            className="rounded-full"
-          />
-          <div className="flex flex-col justify-center ml-8">
-            <span className="font-bold text-2xl hover:underline hover:underline-offset-4 hover:cursor-pointer">
+          <div className="md:hidden flex items-center">
+            <Image
+              src="/images/example-profile.png"
+              width="65"
+              height="65"
+              className="rounded-full"
+              layout="fixed"
+            />
+          </div>
+          <div className="hidden md:block">
+            <Image
+              src="/images/example-profile.png"
+              width="125"
+              height="125"
+              className="rounded-full"
+              layout="fixed"
+            />
+          </div>
+          <div className="flex flex-col justify-center ml-4 md:ml-8">
+            <span className="font-bold text-xl md:text-2xl hover:underline hover:underline-offset-4 hover:cursor-pointer">
               노정훈회장님
             </span>
-            <p className="mt-2 text-xl">
+            <p className="mt-2 text-sm md:text-xl">
               한 줄 소개 한 줄 소개 한 줄 소개 한 줄 소개 한 줄 소개
             </p>
           </div>
@@ -113,17 +122,17 @@ const PostView: NextPage = () => {
         {/* 하단 댓글정보 및 댓글작성 영역 */}
         <section className="w-full mt-24">
           <div id="comment-count">
-            <span className="text-3xl font-bold text-devkor">3</span>
-            <span className="text-3xl font-bold">개의 댓글</span>
+            <span className="text-xl md:text-3xl font-bold text-devkor">3</span>
+            <span className="text-xl md:text-3xl font-bold">개의 댓글</span>
           </div>
-          <div id="comment-write" className="mt-8">
+          <div id="comment-write" className="mt-4 md:mt-8">
             <textarea
-              className="w-full h-24 min-h-24 mb-4 text-lg resize-none rounded-[4px] bg-[#1e1e1e] focus:outline-none py-[1rem] px-[1.5rem]"
+              className="w-full h-24 min-h-24 mb-4 text-base md:text-lg resize-none rounded-[4px] bg-[#1e1e1e] focus:outline-none py-[1rem] px-[1.5rem]"
               placeholder="댓글로 의견을 나눠보세요"
             />
           </div>
           <div className="flex justify-end">
-            <button className="bg-devkor text-black font-bold text-xl w-32 h-10 rounded-md">
+            <button className="bg-devkor text-black font-bold text-base md:text-xl w-24 md:w-32 h-10 rounded-md">
               댓글 작성
             </button>
           </div>
@@ -142,8 +151,10 @@ const PostView: NextPage = () => {
         {/* 다른 주제의 포스트 영역 3개까지 추천 */}
         <section className="mt-28 w-full">
           <div className="flex justify-center lg:justify-start">
-            <span className="text-2xl font-bold text-devkor">FrontEnd</span>
-            <span className="text-2xl font-bold ml-1.5">
+            <span className="text-xl md:text-2xl font-bold text-devkor">
+              FrontEnd
+            </span>
+            <span className="text-xl md:text-2xl font-bold ml-1.5">
               주제의 다른 포스트
             </span>
           </div>

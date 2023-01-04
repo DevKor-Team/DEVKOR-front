@@ -29,7 +29,7 @@ export const TagButton = ({
 // PostView Tag
 export const PostTag = ({ category }: { category: string }) => {
   return (
-    <span className="bg-devkor text-black text-lg font-bold w-28 py-1 mr-4 rounded-full flex justify-center">
+    <span className="bg-devkor text-black text-sm md:text-lg font-bold w-20 md:w-28 py-1 mr-4 rounded-full flex justify-center">
       {category}
     </span>
   );
