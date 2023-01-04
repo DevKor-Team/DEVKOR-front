@@ -29,7 +29,7 @@ const Header = () => {
       </section>
       {/* 마이페이지 아이콘 or 햄버거(모바일)*/}
       <section className="py-[1.875rem] flex items-center cursor-pointer">
-        <div className="hidden md:flex">
+        <div className="hidden lg:flex">
           <Image
             src="/images/profile-logo.png"
             alt="profile"
@@ -38,12 +38,14 @@ const Header = () => {
             layout="fixed"
           />
         </div>
-        <div className="flex md:hidden">
+        <div className="flex lg:hidden">
           <Hamburger
             toggled={isOpen}
             toggle={setOpen}
             size={24}
             color={"#F6B55A"}
+            rounded
+            label="Show menu"
           />
         </div>
       </section>
