@@ -1,15 +1,17 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { FiHeart, FiDownload } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa"; //꽉 찬 하트
-import { IoChatbox } from "react-icons/io5";
 import { PostTag } from "../../../components/Tags";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import React, { useState } from "react";
 import { PostComment } from "../../../components/PostComment";
 import PostCard from "../../../components/PostCard";
+import {
+  EmptyHeartIcon,
+  DownloadIcon,
+  ChatboxIcon,
+} from "../../../components/Icons";
 
 const PostView: NextPage = () => {
   const router = useRouter();
@@ -46,18 +48,9 @@ const PostView: NextPage = () => {
           <div className="flex justify-between">
             <PostTag category="FrontEnd" />
             <div className="flex items-center space-x-4">
-              <FiHeart
-                stroke="#F6B55A"
-                className="hover:cursor-pointer w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
-              />
-              <FiDownload
-                stroke="#F6B55A"
-                className="hover:cursor-pointer w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
-              />
-              <IoChatbox
-                fill="#F6B55A"
-                className="hover:cursor-pointer w-[20px] h-[20px] md:w-[24px] md:h-[24px]"
-              />
+              <EmptyHeartIcon />
+              <DownloadIcon />
+              <ChatboxIcon />
             </div>
           </div>
           <h1 className="text-3xl md:text-4xl leading-snug md:leading-snug md:text-5xl font-bold font-noto mt-6">
