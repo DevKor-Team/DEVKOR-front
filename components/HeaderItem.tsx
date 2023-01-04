@@ -47,6 +47,7 @@ export const MobileHeaderDropdown = ({ isOpen }: { isOpen: boolean }) => {
         isOpen ? "flex" : "hidden"
       } z-10 lg:hidden absolute right-[1.7rem] md:right-[9.375rem] top-[4rem] flex-col space-y-3 justify-center items-start`}
     >
+      {/* Todo: 로그인 여부에 따라서 MyPage 또는 Login 으로 표기하기*/}
       {["MyPage"].concat(MenuList).map((menu) => (
         <SingleMenu title={menu} />
       ))}
