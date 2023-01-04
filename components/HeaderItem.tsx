@@ -45,7 +45,7 @@ export const MobileHeaderDropdown = ({ isOpen }: { isOpen: boolean }) => {
     <nav
       className={`w-40 p-4 rounded-md bg-white ${
         isOpen ? "flex" : "hidden"
-      } lg:hidden absolute right-[3.6rem] md:right-[10rem] top-[4rem] flex-col space-y-3 justify-center items-center`}
+      } lg:hidden absolute right-[1.7rem] md:right-[10rem] top-[4rem] flex-col space-y-3 justify-center items-center`}
     >
       {MenuList.map((menu) => (
         <SingleMenu title={menu} />

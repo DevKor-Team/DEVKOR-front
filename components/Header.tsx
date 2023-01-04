@@ -7,7 +7,7 @@ import Hamburger from "hamburger-react";
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
   return (
-    <header className="w-full relative px-[3rem] md:px-[9.375rem] flex bg-black justify-between items-center h-[5rem]">
+    <header className="w-full relative px-[1rem] md:px-[9.375rem] flex bg-black justify-between items-center h-[5rem]">
       <section className="flex">
         {/* 헤더 로고 */}
         <div className="flex items-center pr-[2rem] w-[6.75rem] h-[5.625rem] hover:cursor-pointer">
