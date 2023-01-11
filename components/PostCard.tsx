@@ -5,7 +5,7 @@ import { FaComment, FaHeart } from "react-icons/fa";
 
 const PostCard = () => {
   return (
-    <div className="max-w-sm w-full lg:w-[13rem] xl:w-[17rem] 2xl:w-[19.5rem] rounded overflow-hidden shadow-lg cursor-pointer bg-button md:hover:-mt-5 md:hover:mb-5 transition-all">
+    <div className="max-w-sm w-full mb-8 rounded overflow-hidden shadow-lg cursor-pointer bg-button md:hover:-mt-5 md:hover:mb-5 transition-all">
       <div className="w-full aspect-[3/2] relative">
         <Image src={blogDefault} alt="BlogPost" layout="fill" />
       </div>
