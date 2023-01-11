@@ -5,18 +5,18 @@ import { FaComment, FaHeart } from "react-icons/fa";
 
 const PostCard = () => {
   return (
-    <div className="max-w-sm ml-auto mr-auto rounded overflow-hidden shadow-lg cursor-pointer bg-button md:hover:-mt-5 md:hover:mb-5 transition-all">
+    <div className="max-w-sm w-full mb-8 rounded overflow-hidden shadow-lg cursor-pointer bg-button md:hover:-mt-5 md:hover:mb-5 transition-all">
       <div className="w-full aspect-[3/2] relative">
         <Image src={blogDefault} alt="BlogPost" layout="fill" />
       </div>
       <div className="px-4 py-4">
-        <div className="font-bold text-white text-2xl break-normal mb-5 h-14">
+        <div className="font-bold text-white text-2xl lg:text-xl xl:text-2xl break-normal mb-5 h-14">
           Next.js의 Hydration 파헤치기
         </div>
         <p className="text-divider">2022년 10월 7일</p>
       </div>
       <div className="info flex items-center mb-3 border-t-divider border-t">
-        <div className="ml-4 mt-3 flex items-center">
+        <div className="ml-4 md:ml-2 xl:ml-4 mt-3 flex items-center">
           <Image
             className="rounded-full"
             src={profileDefault}

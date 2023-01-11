@@ -16,9 +16,120 @@ body {
   color: white;
 }
 
-a {
-  color: inherit;
+article blockquote {
+  margin: 2rem 0;
+  border-left: 4px solid #f6b55a;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #1e1e1e;
+  width: 100%;
+  padding: 1rem 1rem 1rem 2rem;
+}
+
+article h1 {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+article h2 {
+  line-height: 1.5;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+article h3 {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+article h4 {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+article h5 {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 0.83em;
+  font-weight: bold;
+}
+
+article h6 {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 0.67em;
+  font-weight: bold;
+}
+
+article p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  letter-spacing: -0.004em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+article a {
+  color: #f6b55a;
   text-decoration: none;
+}
+
+article code {
+  background: #1e1e1e;
+  padding: 0.2em 0.4em;
+  font-size: 85%;
+  border-radius: 3px;
+}
+
+article ol {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+article ol li,
+article ul li {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  letter-spacing: -0.004em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+article ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+article p img {
+  display: block;
+  margin: 3rem auto;
+  max-width: 100%;
+  height: auto;
+}
+
+article table {
+  min-width: 40%;
+  max-width: 100%;
+  border: 1px solid #1e1e1e;
+  border-collapse: collapse;
+  font-size: 0.875rem;
 }
 
 * {
@@ -32,5 +143,26 @@ a {
   body {
     color: white;
     background: black;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  article h1 {
+    font-size: 2.25rem;
+  }
+  article h2 {
+    font-size: 1.75rem;
+  }
+  article h3 {
+    font-size: 1.25rem;
+  }
+  article h4,
+  article p,
+  article ol li,
+  article ul li {
+    font-size: 1rem;
+  }
+  article pre {
+    font-size: 0.75rem;
   }
 }
